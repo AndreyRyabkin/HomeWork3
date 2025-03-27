@@ -46,4 +46,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    val viewmodel_version: String = "2.8.7"
+    val livedata_version: String = "2.8.7"
+    val activity_version: String = "1.10.1"
+
+    dependencies {
+        implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$viewmodel_version")
+        implementation("androidx.lifecycle:lifecycle-livedata-ktx:$livedata_version")
+        implementation("androidx.activity:activity-ktx:$activity_version")
+    }
+
 }
