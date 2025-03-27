@@ -6,9 +6,9 @@ data class Post(
     val published: String,
     val content: String,
     val likeByMe: Boolean,
-    var counter: Int,
-    var numberView: Int,
-    var repost: Int,
+    val counter: Int,
+    val numberView: Int,
+    val repost: Int,
 
 
 

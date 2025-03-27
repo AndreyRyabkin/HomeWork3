@@ -16,6 +16,12 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.likesView.setOnClickListener {
+            viewModel.likePost()
+        }
+        binding.imageView.setOnClickListener {
+            viewModel.repostPost()
+        }
 
         viewModel.data.observe(this) { post ->
             with(binding) {
@@ -26,12 +32,6 @@ class MainActivity : AppCompatActivity() {
                 numberOfVies.text = format(post.numberView)
                 textView.text = format(post.repost)
 
-                imageView.setOnClickListener {
-                    viewModel.repostPost()
-                }
-
-
-
                 likesView.setImageResource(
                     if (post.likeByMe) {
                         R.drawable.like_red
@@ -39,12 +39,9 @@ class MainActivity : AppCompatActivity() {
                         R.drawable.like_svgrepo_com
                     }
                 )
-
-                likesView.setOnClickListener {
-                    viewModel.likePost()
-                }
             }
         }
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
