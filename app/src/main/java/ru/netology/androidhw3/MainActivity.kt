@@ -16,9 +16,11 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        
         binding.likesView.setOnClickListener {
             viewModel.likePost()
         }
+
         binding.imageView.setOnClickListener {
             viewModel.repostPost()
         }
